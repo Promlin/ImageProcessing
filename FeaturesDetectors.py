@@ -4,7 +4,7 @@ import numpy as np
 # TODO Create class and methods
 
 # Features Detectors
-img_path = "pic_totoro.jpg"
+img_path = "pokemon_pic.jpg"
 
 # SIFT Detector
 input_img = cv2.imread(img_path, cv2.IMREAD_COLOR)  # Image reading
@@ -33,8 +33,8 @@ cv2.imshow("ORB detection", img_out)
 
 # Feature point description method
 # starts with SIFT detection
-img1 = cv2.imread("pic1.jpg", cv2.IMREAD_COLOR)
-img2 = cv2.imread("pic2.jpg", cv2.IMREAD_COLOR)
+img1 = cv2.imread("pikachu.jpg", cv2.IMREAD_COLOR)
+img2 = cv2.imread("pokemon_pic.jpg", cv2.IMREAD_COLOR)
 img1_gray = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
 img2_gray = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
 sift = cv2.SIFT_create()
