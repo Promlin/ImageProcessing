@@ -87,7 +87,7 @@ if len(matches) < MIN_MATCH_COUNT:
     # return
 # Create arrays of point coordinates
 img1_pts = np.float32([img1_fp[m.queryIdx].pt for m in matches]).reshape(-1, 1, 2)
-img2_pts = np.float32([img2_fp[m.queryIdx].pt for m in matches]).reshape(-1, 1, 2)
+img2_pts = np.float32([img2_fp[m.trainIdx].pt for m in matches]).reshape(-1, 1, 2)
 # Run RANSAC method
 M, mask = cv2.findHomography(img1_pts, img2_pts, cv2.RANSAC, 5)
 mask = mask.ravel().tolist()
