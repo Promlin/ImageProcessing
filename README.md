@@ -1,5 +1,5 @@
 # ImageProcessing
-Practice Works for Image Prcessing subject in university
+Practice Works for Image Prcessing subject in ITMO University (St. Petersburg, Russia)
 
 # Features Detectors
 
