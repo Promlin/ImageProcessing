@@ -28,12 +28,24 @@ eye_detector.load(cascade_fn)
 # For each face use it as a ROI  and detect eyes
 for (x, y, w, h) in faces:
     img_faces = Img[y: y + h, x: x + w]
-    eyes = eye_detector.detectMultiScale(img_faces, scaleFactor=1.05)
+    # Define ROI and top 2/3 of the face image
+    img_face_top = img_gray[y: y + h * 2 // 3, x: x + w]
+    eyes = eye_detector.detectMultiScale(img_face_top, scaleFactor=1.05)
+
     for (x2, y2, w2, h2) in eyes:
         img_out = cv2.rectangle(img_out, (x + x2, y + y2, w2, h2), color=(147, 20, 255))
 
-    # Define ROI and top 2/3 of the face image
-    img_face_top = img_gray[y: y + h * 2 // 3, x: x + w]
+
+# Load nose cascade
+nose_detector = cv2.CascadeClassifier()
+cascade_fn_nose = cv2.samples.findFile("haarcascade_nose.xml")
+nose_detector.load(cascade_fn_nose)
+for (x, y, w, h) in faces:
+    img_faces_nose = Img[y: y + h, x: x + w]
+    img_face_bot = img_gray[y + h * 1 // 8:  y + h * 7 // 8, x: x + w]
+    noses = nose_detector.detectMultiScale(img_face_bot, scaleFactor=1.05)
+    for (x2, y2, w2, h2) in noses:
+        img_out = cv2.rectangle(img_out, (x + x2, y + y2, w2, h2), color=(255, 0, 0))
 
 cv2.imshow("Result", img_out)
 
