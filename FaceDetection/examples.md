@@ -2,7 +2,11 @@
 
 In this project I tried to detect faces and part of the face (eyes and noses) by using Viola-Jones approach.
 
-[some theory and method conception]
+The explanation of the principle is quite voluminous, so I decided to attach links to Russian-language and English-language articles, where the theory is explained quite well
+
+[Russian - "Метод Виолы-Джонса (Viola-Jones) как основа для распознавания лиц"](https://habr.com/ru/post/133826/)
+
+[English - "Viola Jones Algorithm and Haar Cascade Classifier"](https://towardsdatascience.com/viola-jones-algorithm-and-haar-cascade-classifier-ee3bfb19f7d8)
 
 On the following picture you can see detection with the only one face on the picture. There are some mistakes with the face detection (there are two false detected faces), but the face itself is correctly defined and the eyes with the nose are also correctly defined. 
 Image (a) is the original image, and image (b) shows the result of the method.
